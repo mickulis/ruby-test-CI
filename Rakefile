@@ -1,7 +1,7 @@
 require 'rake/testtask'
 require 'rspec/core/rake_task'
 
-task :default => [:spec]
+task :default => %w[test spec]
 
 desc "Minitest tests."
 Rake::TestTask.new do |task|
