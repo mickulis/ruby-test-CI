@@ -1,4 +1,3 @@
-
 class ResistorColor
 
 	COLORS = %w(black brown red orange yellow green blue violet grey white)

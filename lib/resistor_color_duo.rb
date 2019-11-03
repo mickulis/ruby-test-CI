@@ -13,6 +13,6 @@ class ResistorColorDuo
 	}
 
 	def self.value(inputArray)
-		10*@@valueMap[inputArray[0].hash] + @@valueMap[inputArray[1].hash]
+		10 * @@valueMap[inputArray[0].hash] + @@valueMap[inputArray[1].hash]
 	end
 end

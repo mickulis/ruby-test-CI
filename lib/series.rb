@@ -10,7 +10,7 @@ class Series
 		end
 		array = Array.new
 		for i in 0..(@string.length - n)
-			array[i] = @string[i..i+n-1]
+			array[i] = @string[i..i + n - 1]
 		end
 		array
 	end
