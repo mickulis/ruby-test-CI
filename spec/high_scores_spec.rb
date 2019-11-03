@@ -1,7 +1,7 @@
 require_relative '../lib/high_scores'
 
 # Common test data version: 5.0.0 7dfb96c
-class HighScoresTest < Minitest::Test
+RSpec.describe HighScores do
 	it "test_list_of_scores" do
 		scores = [30, 50, 20, 70]
 		expected = [30, 50, 20, 70]

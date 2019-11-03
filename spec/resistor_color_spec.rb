@@ -1,7 +1,7 @@
 require_relative '../lib/resistor_color'
 
 # Common test data version: 1.0.0 edf1778
-RSpec.describe CLASS do
+RSpec.describe ResistorColor do
 	it "test_black" do
 		expect(ResistorColor.color_code("black")).to(eq(expected))
 	end
