@@ -1,9 +1,7 @@
 require_relative '../lib/connect'
 
-# Common test data version: 1.1.0 a02d64d
-RSpec.describe Acronym do
-  def test_an_empty_board_has_no_winner
-    # 
+RSpec.describe Board do
+  it "test_an_empty_board_has_no_winner" do
     board = [
       '. . . . .',
       ' . . . . .',
@@ -12,29 +10,26 @@ RSpec.describe Acronym do
       '    . . . . .'
     ].map {|row| row.gsub(/^ */, '')}
     game = Board.new(board)
-    assert_equal '', game.winner, 'an empty board has no winner'
+    expect(game.winner).to(eq(''))
   end
 
-  def test_x_can_win_on_a_1x1_board
-    
+  it "test_x_can_win_on_a_1x1_board" do
     board = [
       'X'
     ].map {|row| row.gsub(/^ */, '')}
     game = Board.new(board)
-    assert_equal 'X', game.winner, 'X can win on a 1x1 board'
+    expect(game.winner).to(eq('X'))
   end
 
-  def test_o_can_win_on_a_1x1_board
-    
+  it "test_o_can_win_on_a_1x1_board" do
     board = [
       'O'
     ].map {|row| row.gsub(/^ */, '')}
     game = Board.new(board)
-    assert_equal 'O', game.winner, 'O can win on a 1x1 board'
+    expect(game.winner).to(eq('O'))
   end
 
-  def test_only_edges_does_not_make_a_winner
-    
+  it "test_only_edges_does_not_make_a_winner" do
     board = [
       'O O O X',
       ' X . . X',
@@ -42,10 +37,10 @@ RSpec.describe Acronym do
       '   X O O O'
     ].map {|row| row.gsub(/^ */, '')}
     game = Board.new(board)
-    assert_equal '', game.winner, 'only edges does not make a winner'
+    expect(game.winner).to(eq(''))
   end
 
-  def test_illegal_diagonal_does_not_make_a_winner
+  it "test_illegal_diagonal_does_not_make_a_winner" do
     
     board = [
       'X O . .',
@@ -55,10 +50,10 @@ RSpec.describe Acronym do
       '    X X O O'
     ].map {|row| row.gsub(/^ */, '')}
     game = Board.new(board)
-    assert_equal '', game.winner, 'illegal diagonal does not make a winner'
+    expect(game.winner).to(eq(''))
   end
 
-  def test_nobody_wins_crossing_adjacent_angles
+  it "test_nobody_wins_crossing_adjacent_angles" do
     
     board = [
       'X . . .',
@@ -68,10 +63,10 @@ RSpec.describe Acronym do
       '    . . O .'
     ].map {|row| row.gsub(/^ */, '')}
     game = Board.new(board)
-    assert_equal '', game.winner, 'nobody wins crossing adjacent angles'
+    expect(game.winner).to(eq(''))
   end
 
-  def test_x_wins_crossing_from_left_to_right
+  it "test_x_wins_crossing_from_left_to_right" do
     
     board = [
       '. O . .',
@@ -81,10 +76,10 @@ RSpec.describe Acronym do
       '    . O X .'
     ].map {|row| row.gsub(/^ */, '')}
     game = Board.new(board)
-    assert_equal 'X', game.winner, 'X wins crossing from left to right'
+    expect(game.winner).to(eq('X'))
   end
 
-  def test_o_wins_crossing_from_top_to_bottom
+  it "test_o_wins_crossing_from_top_to_bottom" do
     
     board = [
       '. O . .',
@@ -94,10 +89,10 @@ RSpec.describe Acronym do
       '    . O X .'
     ].map {|row| row.gsub(/^ */, '')}
     game = Board.new(board)
-    assert_equal 'O', game.winner, 'O wins crossing from top to bottom'
+    expect(game.winner).to(eq('O'))
   end
 
-  def test_x_wins_using_a_convoluted_path
+  it "test_x_wins_using_a_convoluted_path" do
     
     board = [
       '. X X . .',
@@ -107,11 +102,10 @@ RSpec.describe Acronym do
       '    O O O O O'
     ].map {|row| row.gsub(/^ */, '')}
     game = Board.new(board)
-    assert_equal 'X', game.winner, 'X wins using a convoluted path'
+    expect(game.winner).to(eq('X'))
   end
 
-  def test_x_wins_using_a_spiral_path
-    
+  it "test_x_wins_using_a_spiral_path" do
     board = [
       'O X X X X X X X X',
       ' O X O O O O O O O',
@@ -124,6 +118,6 @@ RSpec.describe Acronym do
       '        X X X X X X X X O'
     ].map {|row| row.gsub(/^ */, '')}
     game = Board.new(board)
-    assert_equal 'X', game.winner, 'X wins using a spiral path'
+    expect(game.winner).to(eq('X'))
   end
 end
