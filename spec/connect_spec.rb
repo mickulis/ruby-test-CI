@@ -1,8 +1,7 @@
-require 'minitest/autorun'
 require_relative '../lib/connect'
 
 # Common test data version: 1.1.0 a02d64d
-class ConnectTest < Minitest::Test
+RSpec.describe Acronym do
   def test_an_empty_board_has_no_winner
     # 
     board = [
